@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+    <style>
+      .container{
+        width: 400px;
+        height: 56px;
+        border-radius: 8px;
+        box-shadow: 0px 0px 25px 0px #464545;
+        position: relative;
+        overflow: hidden;
+      }
+      .background{
+        height: 56px;
+        opacity: 0.3;
+        background: #fff;
+      }
+      .inner{
+        position: absolute;
+        left: 10px;
+        top: 8px;
+        height: 40px;
+        line-height: 40px;
+        background: linear-gradient(#5d5d5d, #020202);;
+        border-radius: 8px;
+        z-index: 10;
+      }
+      .input{
+        background: transparent;
+        border: none;
+        outline: none;
+        float: left;
+        width: 300px;
+        height: 30px;
+        line-height: 30px;
+        margin-top: 5px;
+        margin-left: 10px;
+        color: #fff;
+      }
+      .btn{
+        float: right;
+        margin-right: 30px;
+        width: 31px;
+        height: 30px;
+        margin-top: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="background" style="-webkit-app-region: drag"></div>
+      <div class="inner">
+        <input type="text" class="input" id="input" onkeyup="keyUp(event)" />
+        <img src="./images/go2.png" class="btn" onclick="openWin()" value="http://" />
+      </div>
+    </div>
+    <script>
+      function keyUp (e) {
+        if (e.keyCode == 13) {
+          openWin()
+        }
+      }
+      function openWin () {
+        window.open(document.getElementById('input').value)
+      }
+      // You can also require other files to run in this process
+      // require('./renderer.js')
+    </script>
+  </body>
+</html>

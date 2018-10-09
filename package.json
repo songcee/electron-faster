@@ -1,0 +1,32 @@
+{
+  "name": "electron",
+  "version": "1.0.0",
+  "description": "A minimal Electron application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "package": "electron-packager . Faster --win --out ./packager --arch=x64 --electronVersion=3.0.2 --overwrite --ignore=node_modules",
+    "build": "electron-builder --win"
+  },
+  "build": {
+    "appId": "com.sc.app",
+    "win": {
+      "target": [
+        "nsis",
+        "zip"
+      ]
+    }
+  },
+  "repository": "https://github.com/electron/electron-quick-start",
+  "keywords": [
+    "Electron",
+    "demo"
+  ],
+  "author": "songce",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^3.0.2",
+    "electron-builder": "^20.28.4",
+    "electron-packager": "^12.2.0"
+  }
+}
