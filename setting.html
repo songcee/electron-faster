@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>交互</title>
+    <style>html,body{padding: 0; margin: 0;}</style>
+  </head>
+  <body>
+      <div style="height: 100px; background: #F00"></div>
+      <div style="height: 100px; background: #FF0"></div>
+      <div style="height: 100px; background: #0F0"></div>
+    <div style="-webkit-app-region: drag; background: #ccc;">拖动窗口</div>
+    <div>
+      <button onclick="close()">关闭</button>
+      <button onclick="minimize()">最小化</button>
+      <button onclick="restore()">还原</button>
+      <button onclick="maximize()">最大化</button>
+    </div>
+    <div>调整窗口大小：宽--<input type="text" id="winW" /> 高--<input type="text" id="winH" /> <button onclick="setSize()">调整</button></div>
+    <script>
+      const ipcRenderer = require('electron').ipcRenderer;
+      function close () {
+        // todo
+        ipcRenderer.send('window-close');
+      }
+      function minimize () {
+        ipcRenderer.send('window-min');
+      }
+      function restore () {
+        ipcRenderer.send('window-restore');
+      }
+      function maximize () {
+        ipcRenderer.send('window-max');
+      }
+      function setSize () {
+        ipcRenderer.send('window-setSize', {width: 200, height: 300});
+      }
+    </script>
+  </body>
+</html>
