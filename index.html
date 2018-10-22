@@ -13,9 +13,8 @@
         overflow: hidden;
       }
       .background{
-        height: 56px;
-        opacity: 0.3;
-        background: #fff;
+        height: 8px;
+        opacity: 0;
       }
       .inner{
         position: absolute;
@@ -58,13 +57,15 @@
       </div>
     </div>
     <script>
+      const ipcRenderer = require('electron').ipcRenderer;
       function keyUp (e) {
         if (e.keyCode == 13) {
           openWin()
         }
       }
       function openWin () {
-        window.open(document.getElementById('input').value)
+        ipcRenderer.send('window-min');
+        // window.open(document.getElementById('input').value)
       }
       // You can also require other files to run in this process
       // require('./renderer.js')
